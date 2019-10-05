@@ -21,21 +21,21 @@ namespace Parking
 
         public static class GlobalData
         {
-            public static int numTicket = 0;
-            public static Boolean flag = true;
+            public static int numTicket = 0;//Esta variable ayuda a controlar los números de los tickets
+            public static Boolean flag = true;//Ayuda para el control del tiempo de cuando sacar un ticket
         }
 
         private void BtnTicket_Click(object sender, EventArgs e)
         {
             if (GlobalData.flag == true)
             {
-                agregarTicket();
-                lblTicket.Show();
-                lblTicket.Text = GlobalData.numTicket.ToString();
+                agregarTicket();//Funcion asyncrona para agregar los tickets y no permitir que se metan mas si no han pasado 5 segundos
+                lblTicket.Show();//Muestra el número de ticket que recién se saco
+                lblTicket.Text = GlobalData.numTicket.ToString();//El label toma el número que tenga la variable de numTicket
                 ListViewItem lista = new ListViewItem(lblTicket.Text); //Agrega el numero de ticket
-                lista.SubItems.Add(lblTicket.Text); //Agrega la hora de entrada
+                lista.SubItems.Add(DateTime.Now.ToLongTimeString().ToString()); //Agrega la hora de entrada
                 lvParking.Items.Add(lista); //Le mando mi objeto, los datos a la listView
-                this.timer1.Start();
+                this.timer1.Start();//Inicia el timer de 5 segundos
             }
             else
             {
@@ -45,15 +45,15 @@ namespace Parking
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            lblTicket.Text = GlobalData.numTicket.ToString();
-            lblTicket.Hide();
+            lblTicket.Text = GlobalData.numTicket.ToString();//El label toma el número que tenga la variable de numTicket
+            lblTicket.Hide();//Esconde el label una vez terminado el tiempo
         }
 
         static async void agregarTicket()
         {
-            GlobalData.flag = false;
-            GlobalData.numTicket++;
-            await Task.Delay(5000);
+            GlobalData.flag = false;//Lo pone en false para en caso de que se quiera agregar otro item sin que este sea permitido
+            GlobalData.numTicket++;//Aumenta el número del ticket
+            await Task.Delay(5000);//Tiempo de espera de 5 segundos
             GlobalData.flag = true;
         }
 

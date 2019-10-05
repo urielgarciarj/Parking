@@ -56,9 +56,9 @@
             this.columnEntry,
             this.columnExit,
             this.columnPrice});
-            this.lvParking.Location = new System.Drawing.Point(254, 30);
+            this.lvParking.Location = new System.Drawing.Point(258, 31);
             this.lvParking.Name = "lvParking";
-            this.lvParking.Size = new System.Drawing.Size(698, 303);
+            this.lvParking.Size = new System.Drawing.Size(673, 303);
             this.lvParking.TabIndex = 1;
             this.lvParking.UseCompatibleStateImageBehavior = false;
             this.lvParking.View = System.Windows.Forms.View.Details;
