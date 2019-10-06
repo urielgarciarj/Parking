@@ -43,7 +43,7 @@
             // 
             // btnTicket
             // 
-            this.btnTicket.BackColor = System.Drawing.Color.Linen;
+            this.btnTicket.BackColor = System.Drawing.SystemColors.Window;
             this.btnTicket.Location = new System.Drawing.Point(12, 149);
             this.btnTicket.Name = "btnTicket";
             this.btnTicket.Size = new System.Drawing.Size(202, 64);
@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1416, 696);
             this.Controls.Add(this.btnpaid);
             this.Controls.Add(this.textBox1);

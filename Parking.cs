@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,7 +54,7 @@ namespace Parking
         static async void agregarTicket()
         {
             GlobalData.flag = false;//Lo pone en false para en caso de que se quiera agregar otro item sin que este sea permitido
-            GlobalData.numTicket++;//Aumenta el número del ticket
+            GlobalData.numTicket++;//Aumenta el número del ticket.
             await Task.Delay(5000);//Tiempo de espera de 5 segundos
             GlobalData.flag = true;//CX
         }
