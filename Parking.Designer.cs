@@ -1,6 +1,6 @@
 ﻿namespace Parking
 {
-    partial class Parking
+    partial class btnPay
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -37,16 +37,19 @@
             this.columnPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblTicket = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnpaid = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTicket
             // 
+            this.btnTicket.BackColor = System.Drawing.Color.Linen;
             this.btnTicket.Location = new System.Drawing.Point(12, 149);
             this.btnTicket.Name = "btnTicket";
             this.btnTicket.Size = new System.Drawing.Size(202, 64);
             this.btnTicket.TabIndex = 0;
             this.btnTicket.Text = "Ticket";
-            this.btnTicket.UseVisualStyleBackColor = true;
+            this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.BtnTicket_Click);
             // 
             // lvParking
@@ -97,15 +100,35 @@
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // Parking
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(978, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(119, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // btnpaid
+            // 
+            this.btnpaid.Location = new System.Drawing.Point(1141, 25);
+            this.btnpaid.Name = "btnpaid";
+            this.btnpaid.Size = new System.Drawing.Size(109, 30);
+            this.btnpaid.TabIndex = 4;
+            this.btnpaid.Text = "Pagar";
+            this.btnpaid.UseVisualStyleBackColor = true;
+            this.btnpaid.Click += new System.EventHandler(this.Btnpaid_Click);
+            // 
+            // btnPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(1416, 696);
+            this.Controls.Add(this.btnpaid);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblTicket);
             this.Controls.Add(this.lvParking);
             this.Controls.Add(this.btnTicket);
-            this.Name = "Parking";
+            this.Name = "btnPay";
             this.Text = "Parking";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,6 +144,8 @@
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Button btnTicket;
         public System.Windows.Forms.Label lblTicket;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnpaid;
     }
 }
 

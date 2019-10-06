@@ -11,10 +11,10 @@ using System.Timers;
 
 namespace Parking
 {
-    public partial class Parking : Form
+    public partial class btnPay : Form
     {
-      
-        public Parking()
+        List<int> tickets = new List<int>();//Creo una lista para agregar los tickets y poder manejarlos
+        public btnPay()
         {
             InitializeComponent();
         }
@@ -33,13 +33,14 @@ namespace Parking
                 lblTicket.Show();//Muestra el número de ticket que recién se saco
                 lblTicket.Text = GlobalData.numTicket.ToString();//El label toma el número que tenga la variable de numTicket
                 ListViewItem lista = new ListViewItem(lblTicket.Text); //Agrega el numero de ticket
+                tickets.Add(GlobalData.numTicket); //Agrega el ticket a la lista de tickets
                 lista.SubItems.Add(DateTime.Now.ToLongTimeString().ToString()); //Agrega la hora de entrada
                 lvParking.Items.Add(lista); //Le mando mi objeto, los datos a la listView
                 this.timer1.Start();//Inicia el timer de 5 segundos
             }
             else
             {
-                MessageBox.Show("El tiempo de espera aun no termina");
+                MessageBox.Show("El tiempo de espera aun no termina");//Indica el tiempo de espera aun no finalizado para depositar otro ticket
             }
         }
 
@@ -54,8 +55,16 @@ namespace Parking
             GlobalData.flag = false;//Lo pone en false para en caso de que se quiera agregar otro item sin que este sea permitido
             GlobalData.numTicket++;//Aumenta el número del ticket
             await Task.Delay(5000);//Tiempo de espera de 5 segundos
-            GlobalData.flag = true;
+            GlobalData.flag = true;//CX
         }
 
+        private void Btnpaid_Click(object sender, EventArgs e)
+        {
+            int myInt;
+            for (int i = 0; i < tickets.Count; i++)
+            {
+                MessageBox.Show(tickets[i].ToString());
+            }
+        }
     }
 }
