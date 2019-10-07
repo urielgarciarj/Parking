@@ -37,7 +37,7 @@
             this.columnPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblTicket = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTicket = new System.Windows.Forms.TextBox();
             this.btnpaid = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -100,12 +100,12 @@
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // textBox1
+            // txtTicket
             // 
-            this.textBox1.Location = new System.Drawing.Point(978, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtTicket.Location = new System.Drawing.Point(978, 31);
+            this.txtTicket.Name = "txtTicket";
+            this.txtTicket.Size = new System.Drawing.Size(119, 20);
+            this.txtTicket.TabIndex = 3;
             // 
             // btnpaid
             // 
@@ -124,7 +124,7 @@
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1416, 696);
             this.Controls.Add(this.btnpaid);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTicket);
             this.Controls.Add(this.lblTicket);
             this.Controls.Add(this.lvParking);
             this.Controls.Add(this.btnTicket);
@@ -144,7 +144,7 @@
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.Button btnTicket;
         public System.Windows.Forms.Label lblTicket;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTicket;
         private System.Windows.Forms.Button btnpaid;
     }
 }
