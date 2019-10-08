@@ -26,6 +26,7 @@ namespace Parking
             public static Boolean flag = true;//Ayuda para el control del tiempo de cuando sacar un ticket
             public static int creditos = 0;//Variable que ayuda a saber cuanto dinero se ha depositado
             public static double finaltime = 0;//Variable que me ayuda a saber cuanto tiempo se quedo el carro
+            public static double finalpay = 0;//Variable que me ayuda a saber cuanto se le cobrara dependiendo el tiempo
         }
 
         private void BtnTicket_Click(object sender, EventArgs e)
@@ -76,6 +77,7 @@ namespace Parking
             if (ticketsList.Contains(myInt)) //Función para saber si existe o no el valor dado
             {
                 parkingpayment(myInt);
+
                 myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
                 ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
             }
@@ -103,6 +105,10 @@ namespace Parking
                     DateTime fechasalida = Convert.ToDateTime(DateTime.Now.ToLongTimeString().ToString());
                     GlobalData.finaltime = fechasalida.Subtract(fechaentrada).TotalSeconds;
                     MessageBox.Show(GlobalData.finaltime.ToString());
+                    if(GlobalData.finaltime >= 6)
+                    {
+
+                    }
                 }
             }
             return GlobalData.finaltime;
