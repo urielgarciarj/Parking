@@ -76,10 +76,18 @@ namespace Parking
 
             if (ticketsList.Contains(myInt)) //Función para saber si existe o no el valor dado
             {
-                parkingpayment(myInt);
-
-                myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
-                ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
+                parkingpayment(myInt);//Función a llamar para verificar lo que cierto ticket debe
+                if (GlobalData.finalpay <= Int32.Parse(lblTotalCoins.Text.ToString()))//Si la cantidad a pagar es menor que los creditos que existen entonces excenta la validación
+                {
+                    MessageBox.Show("La cantidad si es suficiente");
+                    myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
+                    ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad ingresada no es suficiente para pagar el ticket, son: " +GlobalData.finalpay);
+                }
+                
             }
             else
             {
@@ -101,15 +109,15 @@ namespace Parking
             {
                 if (i == 1)
                 {
-                    DateTime fechaentrada = Convert.ToDateTime(ticketsList[1].ToString());
-                    DateTime fechasalida = Convert.ToDateTime(DateTime.Now.ToLongTimeString().ToString());
-                    GlobalData.finaltime = fechasalida.Subtract(fechaentrada).TotalSeconds;
-                    MessageBox.Show(GlobalData.finaltime.ToString());
-                    if(GlobalData.finaltime >= 15)
+                    DateTime fechaentrada = Convert.ToDateTime(ticketsList[1].ToString());//La hora de entrada de ticket se convierte a DateTime
+                    DateTime fechasalida = Convert.ToDateTime(DateTime.Now.ToLongTimeString().ToString());//La hora de salida también se convierte a DateTime
+                    GlobalData.finaltime = fechasalida.Subtract(fechaentrada).TotalSeconds;//Resta de horas calculada en segundos
+                    MessageBox.Show(GlobalData.finaltime.ToString());//Muestra la cantidad de tiempo que se ha quedado cierto ticket
+                    if(GlobalData.finaltime >= 15)//validaciones para saber cuanto se le tiene que cobrar al ticket
                     {
                         GlobalData.finalpay = 5;
                     }
-                    else if(GlobalData.finaltime >= 30)
+                    else if(GlobalData.finaltime >= 30)//validacion para saber cuanto se le tiene que cobrar al ticket
                     {
                         GlobalData.finalpay = 9;
                     }
