@@ -50,6 +50,7 @@
             this.chbox5 = new System.Windows.Forms.CheckBox();
             this.chbox2 = new System.Windows.Forms.CheckBox();
             this.chbox1 = new System.Windows.Forms.CheckBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btnTicket
@@ -248,6 +249,12 @@
             this.chbox1.Text = "Cambio en 1";
             this.chbox1.UseVisualStyleBackColor = true;
             // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            // 
             // Parking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +306,7 @@
         private System.Windows.Forms.CheckBox chbox5;
         private System.Windows.Forms.CheckBox chbox2;
         private System.Windows.Forms.CheckBox chbox1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

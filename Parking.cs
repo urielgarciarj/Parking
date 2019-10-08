@@ -49,8 +49,8 @@ namespace Parking
                 
                 ListViewItem lista = new ListViewItem(lblTicket.Text); //Agrega el numero de ticket
                 lista.SubItems.Add(DateTime.Now.ToLongTimeString().ToString()); //Agrega la hora de entrada
-                lista.SubItems.Add("Vacio");
-                lista.SubItems.Add("Vacio");
+                lista.SubItems.Add("Vacio");//Para la hora de salida
+                lista.SubItems.Add("Vacio");//Para el monto a pagar final
 
                 //ticketsList.Add(GlobalData.numTicket);//Agrego el ticket a la arraylist de tickets
                 ticketsList.AddRange(new ArrayList() {GlobalData.numTicket, DateTime.Now.ToLongTimeString().ToString(), "Vacio", "Vacio"});
@@ -69,6 +69,7 @@ namespace Parking
         {
             lblTicket.Text = GlobalData.numTicket.ToString();//El label toma el número que tenga la variable de numTicket
             lblTicket.Hide();//Esconde el label una vez terminado el tiempo
+            var items = lvParking.Items;
         }
 
         static async void agregarTicket()
@@ -90,6 +91,9 @@ namespace Parking
                 if (GlobalData.finalpay <= Int32.Parse(lblTotalCoins.Text.ToString()))//Si la cantidad a pagar es menor que los creditos que existen entonces excenta la validación
                 {
                     MessageBox.Show("La cantidad si es suficiente");
+                    GlobalData.creditos = GlobalData.creditos - Int32.Parse(GlobalData.finalpay.ToString());
+                    this.lblTotalCoins.Text = GlobalData.creditos.ToString();
+                    //Algoritmo para determinar cantidad a devolver y el cambio en el que se quiere
                     int amountcoins = Int32.Parse(labels[0].Text);
                     List<int> finalcoins = new List<int>();//Se crea una lista para almacenar que tipo de monedas querra el usuario su cambio
                     int[] coins = new int[5];//Se declara el arreglo de monedas
@@ -106,6 +110,9 @@ namespace Parking
                         }
                     }
                     solution(GlobalData.creditos,finalcoins.ToArray());
+                    //Fin de algoritmo
+                    //Retiro del ticket con sus respectivos datos del Array List
+
                     myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
                     ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
                 }
@@ -206,6 +213,11 @@ namespace Parking
         {
             GlobalData.creditos = GlobalData.creditos + 1;
             this.lblTotalCoins.Text = GlobalData.creditos.ToString();
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)//Este evento sirve para refrescar el listView
+        {
+            
         }
     }
 }
