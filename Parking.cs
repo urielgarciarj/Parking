@@ -105,12 +105,17 @@ namespace Parking
                     DateTime fechasalida = Convert.ToDateTime(DateTime.Now.ToLongTimeString().ToString());
                     GlobalData.finaltime = fechasalida.Subtract(fechaentrada).TotalSeconds;
                     MessageBox.Show(GlobalData.finaltime.ToString());
-                    if(GlobalData.finaltime >= 6)
+                    if(GlobalData.finaltime >= 15)
                     {
-
+                        GlobalData.finalpay = 5;
+                    }
+                    else if(GlobalData.finaltime >= 30)
+                    {
+                        GlobalData.finalpay = 9;
                     }
                 }
             }
+            MessageBox.Show("Monto a pagar: " + GlobalData.finalpay.ToString());
             return GlobalData.finaltime;
         }
 
