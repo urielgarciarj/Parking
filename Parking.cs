@@ -12,10 +12,10 @@ using System.Timers;
 
 namespace Parking
 {
-    public partial class btnPay : Form
+    public partial class btn5coins : Form
     {
         ArrayList ticketsList = new ArrayList();//Se crea un arrayList para poder manejar los tickets y sus datos
-        public btnPay()
+        public btn5coins()
         {
             InitializeComponent();
         }
@@ -24,6 +24,8 @@ namespace Parking
         {
             public static int numTicket = 0;//Esta variable ayuda a controlar los números de los tickets
             public static Boolean flag = true;//Ayuda para el control del tiempo de cuando sacar un ticket
+            public static int creditos = 0;//Variable que ayuda a saber cuanto dinero se ha depositado
+            public static double finaltime = 0;//Variable que me ayuda a saber cuanto tiempo se quedo el carro
         }
 
         private void BtnTicket_Click(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace Parking
 
             if (ticketsList.Contains(myInt)) //Función para saber si existe o no el valor dado
             {
+                parkingpayment(myInt);
                 myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
                 ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
             }
@@ -82,11 +85,57 @@ namespace Parking
             }
 
 
-            foreach (var value in ticketsList)//Función para imprimir el ArrayList
+            /*foreach (var value in ticketsList)//Función para imprimir el ArrayList
             {
                 MessageBox.Show(value.ToString());
-            }
+            }*/
 
+        }
+
+        public double parkingpayment(int ticket)
+        {
+            ticket = ticketsList.IndexOf(ticket);
+            for (int i = 0; i < ticket + 4; i++)
+            {
+                if (i == 1)
+                {
+                    DateTime fechaentrada = Convert.ToDateTime(ticketsList[1].ToString());
+                    DateTime fechasalida = Convert.ToDateTime(DateTime.Now.ToLongTimeString().ToString());
+                    GlobalData.finaltime = fechasalida.Subtract(fechaentrada).TotalSeconds;
+                    MessageBox.Show(GlobalData.finaltime.ToString());
+                }
+            }
+            return GlobalData.finaltime;
+        }
+
+        private void Btn20coins_Click(object sender, EventArgs e)
+        {
+            GlobalData.creditos = GlobalData.creditos + 20;
+            this.lblTotalCoins.Text = GlobalData.creditos.ToString();
+        }
+
+        private void Btn10coins_Click(object sender, EventArgs e)
+        {
+            GlobalData.creditos = GlobalData.creditos + 10;
+            this.lblTotalCoins.Text = GlobalData.creditos.ToString();
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            GlobalData.creditos = GlobalData.creditos + 5;
+            this.lblTotalCoins.Text = GlobalData.creditos.ToString();
+        }
+
+        private void Btn2coins_Click(object sender, EventArgs e)
+        {
+            GlobalData.creditos = GlobalData.creditos + 2;
+            this.lblTotalCoins.Text = GlobalData.creditos.ToString();
+        }
+
+        private void Btn1coins_Click(object sender, EventArgs e)
+        {
+            GlobalData.creditos = GlobalData.creditos + 1;
+            this.lblTotalCoins.Text = GlobalData.creditos.ToString();
         }
     }
 }
