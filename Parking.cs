@@ -15,9 +15,15 @@ namespace Parking
     public partial class btn5coins : Form
     {
         ArrayList ticketsList = new ArrayList();//Se crea un arrayList para poder manejar los tickets y sus datos
+        static CheckBox[] checkBox = new CheckBox[5];//Arreglo de checkbox para calculo de cambio
         public btn5coins()
         {
             InitializeComponent();
+            checkBox[0] = this.chbox1;
+            checkBox[1] = this.chbox2;
+            checkBox[2] = this.chbox5;
+            checkBox[3] = this.chbox10;
+            checkBox[4] = this.chbox20;
         }
 
         public static class GlobalData
@@ -80,6 +86,7 @@ namespace Parking
                 if (GlobalData.finalpay <= Int32.Parse(lblTotalCoins.Text.ToString()))//Si la cantidad a pagar es menor que los creditos que existen entonces excenta la validación
                 {
                     MessageBox.Show("La cantidad si es suficiente");
+
                     myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
                     ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
                 }
@@ -94,12 +101,10 @@ namespace Parking
                 MessageBox.Show("El ticket no existe o ha sido eliminado ya");
             }
 
-
             /*foreach (var value in ticketsList)//Función para imprimir el ArrayList
             {
                 MessageBox.Show(value.ToString());
             }*/
-
         }
 
         public double parkingpayment(int ticket)
@@ -125,6 +130,34 @@ namespace Parking
             }
             MessageBox.Show("Monto a pagar: " + GlobalData.finalpay.ToString());
             return GlobalData.finaltime;
+        }
+
+        public string solution(int amountcoins, int[] coins)
+        {
+            int i = 0;
+            GlobalData.result = "Solucion: ";
+            while (GlobalData.solution != amountcoins)
+            {
+                i = coins.Length - 1;
+                while (i >= 0)
+                {
+                    if (GlobalData.solution + coins[i] <= amountcoins)//Mientras que las soluciones que se encuentran sean menores a la cantidad a dar cambio
+                    {
+                        GlobalData.solution = GlobalData.solution + coins[i];
+                        GlobalData.result += "\n Una moneda de : " + coins[i];
+                    }
+                    else
+                    {
+                        i = i - 1;
+                    }
+                }
+            }
+            MessageBox.Show(GlobalData.result);
+            GlobalData.totalcoins = 0;
+            labels[0].Text = GlobalData.totalcoins.ToString();
+            GlobalData.result = "";
+            GlobalData.solution = 0;
+            return amountcoins.ToString();
         }
 
         private void Btn20coins_Click(object sender, EventArgs e)

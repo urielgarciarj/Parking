@@ -45,11 +45,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.btn1coins = new System.Windows.Forms.Button();
             this.lblTotalCoins = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.chbox20 = new System.Windows.Forms.CheckBox();
+            this.chbox10 = new System.Windows.Forms.CheckBox();
+            this.chbox5 = new System.Windows.Forms.CheckBox();
+            this.chbox2 = new System.Windows.Forms.CheckBox();
+            this.chbox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnTicket
@@ -199,60 +199,70 @@
             this.lblTotalCoins.TabIndex = 10;
             this.lblTotalCoins.Text = "0";
             // 
-            // checkBox1
+            // chbox20
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(1250, 389);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(133, 24);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Cambio en 20";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chbox20.AutoSize = true;
+            this.chbox20.Checked = true;
+            this.chbox20.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbox20.Location = new System.Drawing.Point(1250, 389);
+            this.chbox20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox20.Name = "chbox20";
+            this.chbox20.Size = new System.Drawing.Size(133, 24);
+            this.chbox20.TabIndex = 11;
+            this.chbox20.Text = "Cambio en 20";
+            this.chbox20.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chbox10
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(1449, 389);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(133, 24);
-            this.checkBox2.TabIndex = 12;
-            this.checkBox2.Text = "Cambio en 10";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chbox10.AutoSize = true;
+            this.chbox10.Checked = true;
+            this.chbox10.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbox10.Location = new System.Drawing.Point(1449, 389);
+            this.chbox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox10.Name = "chbox10";
+            this.chbox10.Size = new System.Drawing.Size(133, 24);
+            this.chbox10.TabIndex = 12;
+            this.chbox10.Text = "Cambio en 10";
+            this.chbox10.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chbox5
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(1248, 438);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(124, 24);
-            this.checkBox3.TabIndex = 13;
-            this.checkBox3.Text = "Cambio en 5";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chbox5.AutoSize = true;
+            this.chbox5.Checked = true;
+            this.chbox5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbox5.Location = new System.Drawing.Point(1248, 438);
+            this.chbox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox5.Name = "chbox5";
+            this.chbox5.Size = new System.Drawing.Size(124, 24);
+            this.chbox5.TabIndex = 13;
+            this.chbox5.Text = "Cambio en 5";
+            this.chbox5.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chbox2
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(1449, 438);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(124, 24);
-            this.checkBox4.TabIndex = 14;
-            this.checkBox4.Text = "Cambio en 2";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chbox2.AutoSize = true;
+            this.chbox2.Checked = true;
+            this.chbox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbox2.Location = new System.Drawing.Point(1449, 438);
+            this.chbox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox2.Name = "chbox2";
+            this.chbox2.Size = new System.Drawing.Size(124, 24);
+            this.chbox2.TabIndex = 14;
+            this.chbox2.Text = "Cambio en 2";
+            this.chbox2.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chbox1
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(1342, 495);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(124, 24);
-            this.checkBox5.TabIndex = 15;
-            this.checkBox5.Text = "Cambio en 1";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chbox1.AutoSize = true;
+            this.chbox1.Checked = true;
+            this.chbox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbox1.Location = new System.Drawing.Point(1342, 495);
+            this.chbox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox1.Name = "chbox1";
+            this.chbox1.Size = new System.Drawing.Size(124, 24);
+            this.chbox1.TabIndex = 15;
+            this.chbox1.Text = "Cambio en 1";
+            this.chbox1.UseVisualStyleBackColor = true;
             // 
             // btn5coins
             // 
@@ -260,11 +270,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1653, 565);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chbox1);
+            this.Controls.Add(this.chbox2);
+            this.Controls.Add(this.chbox5);
+            this.Controls.Add(this.chbox10);
+            this.Controls.Add(this.chbox20);
             this.Controls.Add(this.lblTotalCoins);
             this.Controls.Add(this.btn1coins);
             this.Controls.Add(this.button4);
@@ -301,11 +311,11 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btn1coins;
         private System.Windows.Forms.Label lblTotalCoins;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox chbox20;
+        private System.Windows.Forms.CheckBox chbox10;
+        private System.Windows.Forms.CheckBox chbox5;
+        private System.Windows.Forms.CheckBox chbox2;
+        private System.Windows.Forms.CheckBox chbox1;
     }
 }
 
