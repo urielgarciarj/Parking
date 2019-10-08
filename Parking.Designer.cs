@@ -1,6 +1,6 @@
 ﻿namespace Parking
 {
-    partial class btn5coins
+    partial class Parking
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -55,10 +55,9 @@
             // btnTicket
             // 
             this.btnTicket.BackColor = System.Drawing.SystemColors.Window;
-            this.btnTicket.Location = new System.Drawing.Point(18, 229);
-            this.btnTicket.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTicket.Location = new System.Drawing.Point(12, 149);
             this.btnTicket.Name = "btnTicket";
-            this.btnTicket.Size = new System.Drawing.Size(303, 98);
+            this.btnTicket.Size = new System.Drawing.Size(202, 64);
             this.btnTicket.TabIndex = 0;
             this.btnTicket.Text = "Ticket";
             this.btnTicket.UseVisualStyleBackColor = false;
@@ -72,10 +71,9 @@
             this.columnExit,
             this.columnPrice});
             this.lvParking.HideSelection = false;
-            this.lvParking.Location = new System.Drawing.Point(387, 48);
-            this.lvParking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lvParking.Location = new System.Drawing.Point(258, 31);
             this.lvParking.Name = "lvParking";
-            this.lvParking.Size = new System.Drawing.Size(762, 464);
+            this.lvParking.Size = new System.Drawing.Size(509, 303);
             this.lvParking.TabIndex = 1;
             this.lvParking.UseCompatibleStateImageBehavior = false;
             this.lvParking.View = System.Windows.Forms.View.Details;
@@ -103,10 +101,9 @@
             // lblTicket
             // 
             this.lblTicket.AutoSize = true;
-            this.lblTicket.Location = new System.Drawing.Point(146, 148);
-            this.lblTicket.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTicket.Location = new System.Drawing.Point(97, 96);
             this.lblTicket.Name = "lblTicket";
-            this.lblTicket.Size = new System.Drawing.Size(51, 20);
+            this.lblTicket.Size = new System.Drawing.Size(37, 13);
             this.lblTicket.TabIndex = 2;
             this.lblTicket.Text = "Ticket";
             // 
@@ -117,18 +114,16 @@
             // 
             // txtTicket
             // 
-            this.txtTicket.Location = new System.Drawing.Point(1215, 38);
-            this.txtTicket.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTicket.Location = new System.Drawing.Point(810, 25);
             this.txtTicket.Name = "txtTicket";
-            this.txtTicket.Size = new System.Drawing.Size(176, 26);
+            this.txtTicket.Size = new System.Drawing.Size(119, 20);
             this.txtTicket.TabIndex = 3;
             // 
             // btnpaid
             // 
-            this.btnpaid.Location = new System.Drawing.Point(1467, 28);
-            this.btnpaid.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnpaid.Location = new System.Drawing.Point(978, 18);
             this.btnpaid.Name = "btnpaid";
-            this.btnpaid.Size = new System.Drawing.Size(164, 46);
+            this.btnpaid.Size = new System.Drawing.Size(109, 30);
             this.btnpaid.TabIndex = 4;
             this.btnpaid.Text = "Pagar";
             this.btnpaid.UseVisualStyleBackColor = true;
@@ -136,10 +131,9 @@
             // 
             // btn20coins
             // 
-            this.btn20coins.Location = new System.Drawing.Point(1250, 160);
-            this.btn20coins.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn20coins.Location = new System.Drawing.Point(833, 104);
             this.btn20coins.Name = "btn20coins";
-            this.btn20coins.Size = new System.Drawing.Size(164, 35);
+            this.btn20coins.Size = new System.Drawing.Size(109, 23);
             this.btn20coins.TabIndex = 5;
             this.btn20coins.Text = "20$";
             this.btn20coins.UseVisualStyleBackColor = true;
@@ -147,10 +141,9 @@
             // 
             // btn10coins
             // 
-            this.btn10coins.Location = new System.Drawing.Point(1449, 160);
-            this.btn10coins.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn10coins.Location = new System.Drawing.Point(966, 104);
             this.btn10coins.Name = "btn10coins";
-            this.btn10coins.Size = new System.Drawing.Size(164, 35);
+            this.btn10coins.Size = new System.Drawing.Size(109, 23);
             this.btn10coins.TabIndex = 6;
             this.btn10coins.Text = "10$";
             this.btn10coins.UseVisualStyleBackColor = true;
@@ -158,10 +151,9 @@
             // 
             // btn2coins
             // 
-            this.btn2coins.Location = new System.Drawing.Point(1449, 228);
-            this.btn2coins.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn2coins.Location = new System.Drawing.Point(966, 148);
             this.btn2coins.Name = "btn2coins";
-            this.btn2coins.Size = new System.Drawing.Size(164, 35);
+            this.btn2coins.Size = new System.Drawing.Size(109, 23);
             this.btn2coins.TabIndex = 7;
             this.btn2coins.Text = "2$";
             this.btn2coins.UseVisualStyleBackColor = true;
@@ -169,10 +161,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1250, 228);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button4.Location = new System.Drawing.Point(833, 148);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(164, 35);
+            this.button4.Size = new System.Drawing.Size(109, 23);
             this.button4.TabIndex = 8;
             this.button4.Text = "5$";
             this.button4.UseVisualStyleBackColor = true;
@@ -180,10 +171,9 @@
             // 
             // btn1coins
             // 
-            this.btn1coins.Location = new System.Drawing.Point(1341, 305);
-            this.btn1coins.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn1coins.Location = new System.Drawing.Point(894, 198);
             this.btn1coins.Name = "btn1coins";
-            this.btn1coins.Size = new System.Drawing.Size(164, 35);
+            this.btn1coins.Size = new System.Drawing.Size(109, 23);
             this.btn1coins.TabIndex = 9;
             this.btn1coins.Text = "1$";
             this.btn1coins.UseVisualStyleBackColor = true;
@@ -192,10 +182,9 @@
             // lblTotalCoins
             // 
             this.lblTotalCoins.AutoSize = true;
-            this.lblTotalCoins.Location = new System.Drawing.Point(1386, 91);
-            this.lblTotalCoins.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalCoins.Location = new System.Drawing.Point(924, 59);
             this.lblTotalCoins.Name = "lblTotalCoins";
-            this.lblTotalCoins.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalCoins.Size = new System.Drawing.Size(13, 13);
             this.lblTotalCoins.TabIndex = 10;
             this.lblTotalCoins.Text = "0";
             // 
@@ -204,10 +193,9 @@
             this.chbox20.AutoSize = true;
             this.chbox20.Checked = true;
             this.chbox20.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbox20.Location = new System.Drawing.Point(1250, 389);
-            this.chbox20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox20.Location = new System.Drawing.Point(833, 253);
             this.chbox20.Name = "chbox20";
-            this.chbox20.Size = new System.Drawing.Size(133, 24);
+            this.chbox20.Size = new System.Drawing.Size(91, 17);
             this.chbox20.TabIndex = 11;
             this.chbox20.Text = "Cambio en 20";
             this.chbox20.UseVisualStyleBackColor = true;
@@ -217,10 +205,9 @@
             this.chbox10.AutoSize = true;
             this.chbox10.Checked = true;
             this.chbox10.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbox10.Location = new System.Drawing.Point(1449, 389);
-            this.chbox10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox10.Location = new System.Drawing.Point(966, 253);
             this.chbox10.Name = "chbox10";
-            this.chbox10.Size = new System.Drawing.Size(133, 24);
+            this.chbox10.Size = new System.Drawing.Size(91, 17);
             this.chbox10.TabIndex = 12;
             this.chbox10.Text = "Cambio en 10";
             this.chbox10.UseVisualStyleBackColor = true;
@@ -230,10 +217,9 @@
             this.chbox5.AutoSize = true;
             this.chbox5.Checked = true;
             this.chbox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbox5.Location = new System.Drawing.Point(1248, 438);
-            this.chbox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox5.Location = new System.Drawing.Point(832, 285);
             this.chbox5.Name = "chbox5";
-            this.chbox5.Size = new System.Drawing.Size(124, 24);
+            this.chbox5.Size = new System.Drawing.Size(85, 17);
             this.chbox5.TabIndex = 13;
             this.chbox5.Text = "Cambio en 5";
             this.chbox5.UseVisualStyleBackColor = true;
@@ -243,10 +229,9 @@
             this.chbox2.AutoSize = true;
             this.chbox2.Checked = true;
             this.chbox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbox2.Location = new System.Drawing.Point(1449, 438);
-            this.chbox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox2.Location = new System.Drawing.Point(966, 285);
             this.chbox2.Name = "chbox2";
-            this.chbox2.Size = new System.Drawing.Size(124, 24);
+            this.chbox2.Size = new System.Drawing.Size(85, 17);
             this.chbox2.TabIndex = 14;
             this.chbox2.Text = "Cambio en 2";
             this.chbox2.UseVisualStyleBackColor = true;
@@ -256,20 +241,19 @@
             this.chbox1.AutoSize = true;
             this.chbox1.Checked = true;
             this.chbox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbox1.Location = new System.Drawing.Point(1342, 495);
-            this.chbox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chbox1.Location = new System.Drawing.Point(895, 322);
             this.chbox1.Name = "chbox1";
-            this.chbox1.Size = new System.Drawing.Size(124, 24);
+            this.chbox1.Size = new System.Drawing.Size(85, 17);
             this.chbox1.TabIndex = 15;
             this.chbox1.Text = "Cambio en 1";
             this.chbox1.UseVisualStyleBackColor = true;
             // 
-            // btn5coins
+            // Parking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1653, 565);
+            this.ClientSize = new System.Drawing.Size(1102, 367);
             this.Controls.Add(this.chbox1);
             this.Controls.Add(this.chbox2);
             this.Controls.Add(this.chbox5);
@@ -286,8 +270,7 @@
             this.Controls.Add(this.lblTicket);
             this.Controls.Add(this.lvParking);
             this.Controls.Add(this.btnTicket);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "btn5coins";
+            this.Name = "Parking";
             this.Text = "Parking";
             this.ResumeLayout(false);
             this.PerformLayout();

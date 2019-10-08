@@ -12,11 +12,12 @@ using System.Timers;
 
 namespace Parking
 {
-    public partial class btn5coins : Form
+    public partial class Parking : Form
     {
         ArrayList ticketsList = new ArrayList();//Se crea un arrayList para poder manejar los tickets y sus datos
         static CheckBox[] checkBox = new CheckBox[5];//Arreglo de checkbox para calculo de cambio
-        public btn5coins()
+        static Label[] labels = new Label[1];
+        public Parking()
         {
             InitializeComponent();
             checkBox[0] = this.chbox1;
@@ -24,6 +25,7 @@ namespace Parking
             checkBox[2] = this.chbox5;
             checkBox[3] = this.chbox10;
             checkBox[4] = this.chbox20;
+            labels[0] = lblTotalCoins; 
         }
 
         public static class GlobalData
@@ -32,7 +34,9 @@ namespace Parking
             public static Boolean flag = true;//Ayuda para el control del tiempo de cuando sacar un ticket
             public static int creditos = 0;//Variable que ayuda a saber cuanto dinero se ha depositado
             public static double finaltime = 0;//Variable que me ayuda a saber cuanto tiempo se quedo el carro
-            public static double finalpay = 0;//Variable que me ayuda a saber cuanto se le cobrara dependiendo el tiempo
+            public static double finalpay = 0;//Variable que me ayuda a saber cuanto se le cobrara al final dependiendo el tiempo
+            public static string result = "";//Variable que me mostrara en resultado en mi message box
+            public static int solution = 0;//La solucion en monedas, en int
         }
 
         private void BtnTicket_Click(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace Parking
             GlobalData.flag = false;//Lo pone en false para en caso de que se quiera agregar otro item sin que este sea permitido
             GlobalData.numTicket++;//Aumenta el número del ticket.
             await Task.Delay(5000);//Tiempo de espera de 5 segundos
-            GlobalData.flag = true;//CX
+            GlobalData.flag = true;//Regresa true para que la siguiente vez que se quiera sacar el ticket el usuario tenga permitido hacerlo
         }
          
         private void Btnpaid_Click(object sender, EventArgs e)
@@ -86,7 +90,22 @@ namespace Parking
                 if (GlobalData.finalpay <= Int32.Parse(lblTotalCoins.Text.ToString()))//Si la cantidad a pagar es menor que los creditos que existen entonces excenta la validación
                 {
                     MessageBox.Show("La cantidad si es suficiente");
-
+                    int amountcoins = Int32.Parse(labels[0].Text);
+                    List<int> finalcoins = new List<int>();//Se crea una lista para almacenar que tipo de monedas querra el usuario su cambio
+                    int[] coins = new int[5];//Se declara el arreglo de monedas
+                    coins[0] = 1;
+                    coins[1] = 2;
+                    coins[2] = 5;
+                    coins[3] = 10;
+                    coins[4] = 20;
+                    for (int i = 0; i < checkBox.Length; i++)
+                    {
+                        if (checkBox[i].Checked)//Si se encuentran en check entraran en el if
+                        {
+                            finalcoins.Add(coins[i]);//Aqui la posicion que haya entrado ahora entrara en la lista
+                        }
+                    }
+                    solution(GlobalData.creditos,finalcoins.ToArray());
                     myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
                     ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
                 }
@@ -94,7 +113,6 @@ namespace Parking
                 {
                     MessageBox.Show("La cantidad ingresada no es suficiente para pagar el ticket, son: " +GlobalData.finalpay);
                 }
-                
             }
             else
             {
@@ -107,7 +125,7 @@ namespace Parking
             }*/
         }
 
-        public double parkingpayment(int ticket)
+        public double parkingpayment(int ticket)//Esta función sirve para determinar cuanto se ha de pagar
         {
             ticket = ticketsList.IndexOf(ticket);
             for (int i = 0; i < ticket + 4; i++)
@@ -135,7 +153,7 @@ namespace Parking
         public string solution(int amountcoins, int[] coins)
         {
             int i = 0;
-            GlobalData.result = "Solucion: ";
+            GlobalData.result = "Solucion: "; //Solucion en string
             while (GlobalData.solution != amountcoins)
             {
                 i = coins.Length - 1;
@@ -153,8 +171,8 @@ namespace Parking
                 }
             }
             MessageBox.Show(GlobalData.result);
-            GlobalData.totalcoins = 0;
-            labels[0].Text = GlobalData.totalcoins.ToString();
+            GlobalData.creditos = 0;
+            labels[0].Text = GlobalData.creditos.ToString();
             GlobalData.result = "";
             GlobalData.solution = 0;
             return amountcoins.ToString();

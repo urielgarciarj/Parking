@@ -16,7 +16,7 @@ namespace Parking
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new btn5coins());
+            Application.Run(new Parking());
         }
     }
 }
