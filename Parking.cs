@@ -170,9 +170,8 @@ namespace Parking
 
                     //Agregar la hora de salida al arraylist
 
-
-                    MessageBox.Show(GlobalData.finaltime.ToString());//Muestra la cantidad de tiempo que se ha quedado cierto ticket
-                    if(GlobalData.finaltime >= 15)//validaciones para saber cuanto se le tiene que cobrar al ticket
+                    MessageBox.Show("Tiempo: " + GlobalData.finaltime.ToString());//Muestra la cantidad de tiempo que se ha quedado cierto ticket
+                    if(GlobalData.finaltime >= 15 && GlobalData.finaltime <= 29)//validaciones para saber cuanto se le tiene que cobrar al ticket
                     {
                         GlobalData.finalpay = 5;
                     }
@@ -270,6 +269,17 @@ namespace Parking
                 }
                 i++;
             }
+        }
+
+        private void btnVerificar_Click(object sender, EventArgs e)
+        {
+            int myInt;//Variable para controlar la eliminacion de los tickets
+            myInt = Int16.Parse(txtTicket.Text.ToString());//Le doy el valor del entero que se dio en el textbox a mi variable
+            if (ticketsList.Contains(myInt)) {
+
+                parkingpayment(myInt);//Función a llamar para verificar lo que cierto ticket debe
+
+            }//Función para saber si existe o no el valor dado
         }
     }
 }
