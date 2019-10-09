@@ -25,7 +25,7 @@ namespace Parking
             checkBox[2] = this.chbox5;
             checkBox[3] = this.chbox10;
             checkBox[4] = this.chbox20;
-            labels[0] = lblTotalCoins; 
+            labels[0] = lblTotalCoins;
         }
 
         public static class GlobalData
@@ -46,14 +46,14 @@ namespace Parking
                 agregarTicket();//Funcion asyncrona para agregar los tickets y no permitir que se metan mas si no han pasado 5 segundos
                 lblTicket.Show();//Muestra el número de ticket que recién se saco
                 lblTicket.Text = GlobalData.numTicket.ToString();//El label toma el número que tenga la variable de numTicket
-                
+
                 ListViewItem lista = new ListViewItem(lblTicket.Text); //Agrega el numero de ticket
                 lista.SubItems.Add(DateTime.Now.ToLongTimeString().ToString()); //Agrega la hora de entrada
                 lista.SubItems.Add("Vacio");//Para la hora de salida
                 lista.SubItems.Add("Vacio");//Para el monto a pagar final
 
                 //ticketsList.Add(GlobalData.numTicket);//Agrego el ticket a la arraylist de tickets
-                ticketsList.AddRange(new ArrayList() {GlobalData.numTicket, DateTime.Now.ToLongTimeString().ToString(), "Vacio", "Vacio"});
+                ticketsList.AddRange(new ArrayList() { GlobalData.numTicket, DateTime.Now.ToLongTimeString().ToString(), "Vacio", "Vacio" });
 
                 lvParking.Items.Add(lista); //Le mando mi objeto, los datos a la listView, para que muestre el nuevo objeto
 
@@ -79,7 +79,7 @@ namespace Parking
             await Task.Delay(5000);//Tiempo de espera de 5 segundos
             GlobalData.flag = true;//Regresa true para que la siguiente vez que se quiera sacar el ticket el usuario tenga permitido hacerlo
         }
-         
+
         private void Btnpaid_Click(object sender, EventArgs e)
         {
             int myInt;//Variable para controlar la eliminacion de los tickets
@@ -109,9 +109,25 @@ namespace Parking
                             finalcoins.Add(coins[i]);//Aqui la posicion que haya entrado ahora entrara en la lista
                         }
                     }
-                    solution(GlobalData.creditos,finalcoins.ToArray());
+                    solution(GlobalData.creditos, finalcoins.ToArray());
                     //Fin de algoritmo
                     //Retiro del ticket con sus respectivos datos del Array List
+                    lvParking.Clear();
+                    lvParking.Columns.Add("Ticket");
+                    lvParking.Columns.Add("Hora de entrada");
+                    lvParking.Columns.Add("Hora de salida");
+                    lvParking.Columns.Add("A pagar");
+                    for (int i = 0; i < ticketsList.Count; i++)
+                    {
+                        ListViewItem lista = new ListViewItem(ticketsList[i].ToString()); //Agrega el numero de ticket
+                        i++;
+                        lista.SubItems.Add(ticketsList[i].ToString()); //Agrega la hora de entrada
+                        i++;
+                        lista.SubItems.Add(ticketsList[i].ToString());//Para la hora de salida
+                        i++;
+                        lista.SubItems.Add(ticketsList[i].ToString());//Para el monto a pagar final
+                        lvParking.Items.Add(lista);
+                    }
 
                     myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
                     ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
@@ -208,7 +224,7 @@ namespace Parking
             GlobalData.creditos = GlobalData.creditos + 2;
             this.lblTotalCoins.Text = GlobalData.creditos.ToString();
         }
-
+        
         private void Btn1coins_Click(object sender, EventArgs e)
         {
             GlobalData.creditos = GlobalData.creditos + 1;
@@ -217,7 +233,30 @@ namespace Parking
 
         private void Timer2_Tick(object sender, EventArgs e)//Este evento sirve para refrescar el listView
         {
-            
+            ListViewItem lista = new ListViewItem();
+            int i = 0;
+            var items = lvParking.Items;
+            foreach (var value in ticketsList)
+            {
+                if(i == 0)
+                {
+                    items.Add(value.ToString());
+                }
+                if(i == 1)
+                {
+                    lista.SubItems.Add(value.ToString());
+                }
+                if (i == 2)
+                {
+                    lista.SubItems.Add(value.ToString());
+                }
+                if (i == 3)
+                {
+                    lista.SubItems.Add(value.ToString());
+                    i = 0;
+                }
+                i++;
+            }
         }
     }
 }
