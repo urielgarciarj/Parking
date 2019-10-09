@@ -33,6 +33,7 @@ namespace Parking
             public static int numTicket = 0;//Esta variable ayuda a controlar los números de los tickets
             public static Boolean flag = true;//Ayuda para el control del tiempo de cuando sacar un ticket
             public static int creditos = 0;//Variable que ayuda a saber cuanto dinero se ha depositado
+            public static string exit = "";//Variable para conocer el tiempo de salida del ticket
             public static double finaltime = 0;//Variable que me ayuda a saber cuanto tiempo se quedo el carro
             public static double finalpay = 0;//Variable que me ayuda a saber cuanto se le cobrara al final dependiendo el tiempo
             public static string result = "";//Variable que me mostrara en resultado en mi message box
@@ -93,6 +94,8 @@ namespace Parking
                     MessageBox.Show("La cantidad si es suficiente");
                     GlobalData.creditos = GlobalData.creditos - Int32.Parse(GlobalData.finalpay.ToString());
                     this.lblTotalCoins.Text = GlobalData.creditos.ToString();
+
+
                     //Algoritmo para determinar cantidad a devolver y el cambio en el que se quiere
                     int amountcoins = Int32.Parse(labels[0].Text);
                     List<int> finalcoins = new List<int>();//Se crea una lista para almacenar que tipo de monedas querra el usuario su cambio
@@ -109,8 +112,13 @@ namespace Parking
                             finalcoins.Add(coins[i]);//Aqui la posicion que haya entrado ahora entrara en la lista
                         }
                     }
-                    solution(GlobalData.creditos, finalcoins.ToArray());
-                    //Fin de algoritmo
+
+                    
+                    solution(GlobalData.creditos, finalcoins.ToArray());//Esta función para retornar el cambio //Fin de algoritmo
+                    myInt = ticketsList.IndexOf(myInt);
+                    ticketsList[myInt + 2] = GlobalData.exit;
+                    ticketsList[myInt + 3] = GlobalData.finalpay;
+
                     //Retiro del ticket con sus respectivos datos del Array List
                     lvParking.Clear();
                     lvParking.Columns.Add("Ticket");
@@ -129,7 +137,7 @@ namespace Parking
                         lvParking.Items.Add(lista);
                     }
 
-                    myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
+                    //myInt = ticketsList.IndexOf(myInt);//Saca el index del numero que se me dio en el textbox
                     ticketsList.RemoveRange(myInt, 4);//Con el index dado le digo que me elimine otros 3 espacios mas para poder remover hora, paga y todo
                 }
                 else
@@ -157,7 +165,12 @@ namespace Parking
                 {
                     DateTime fechaentrada = Convert.ToDateTime(ticketsList[1].ToString());//La hora de entrada de ticket se convierte a DateTime
                     DateTime fechasalida = Convert.ToDateTime(DateTime.Now.ToLongTimeString().ToString());//La hora de salida también se convierte a DateTime
+                    GlobalData.exit = DateTime.Now.ToLongTimeString().ToString();
                     GlobalData.finaltime = fechasalida.Subtract(fechaentrada).TotalSeconds;//Resta de horas calculada en segundos
+
+                    //Agregar la hora de salida al arraylist
+
+
                     MessageBox.Show(GlobalData.finaltime.ToString());//Muestra la cantidad de tiempo que se ha quedado cierto ticket
                     if(GlobalData.finaltime >= 15)//validaciones para saber cuanto se le tiene que cobrar al ticket
                     {
